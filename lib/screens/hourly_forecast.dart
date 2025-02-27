@@ -1,60 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:nimbus_now/models/nimbus_model.dart';
 
-class HourlyForecast extends StatefulWidget {
-  const HourlyForecast({super.key});
-
-  @override
-  State<HourlyForecast> createState() => _HourlyForecastState();
-}
-
-class _HourlyForecastState extends State<HourlyForecast> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      physics: AlwaysScrollableScrollPhysics(),
-      child: Scoller(),
-    );
-  }
-}
-
-class Scoller extends StatelessWidget {
-  const Scoller({super.key});
+class HourlyForecast extends StatelessWidget {
+  final Map<String, dynamic> forecastData;
+  const HourlyForecast({super.key, required this.forecastData});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Row(
-        children: [
-          for (int i = 0; i < 10; i++)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12, left: 5, right: 5),
-              child: Container(
-                width: 100,
-                decoration: BoxDecoration(
-                  color:
-                      Theme.of(context).brightness == Brightness.light
-                          ? Colors.white
-                          : Colors.black,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [BoxShadow(blurRadius: 5.0, offset: Offset(0, 5))],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Column(
-                    children: [
-                      Text('20 C', style: TextStyle(fontSize: 20)),
-                      SizedBox(height: 5),
-                      Icon(Icons.cloud, size: 40),
-                      SizedBox(height: 5),
-                      Text('Sky', style: TextStyle(fontSize: 18)),
-                    ],
-                  ),
+      padding: const EdgeInsets.all(5.0),
+      child: SizedBox(
+        height: 170,
+        child: ListView.builder(
+          padding: EdgeInsets.only(bottom: 10),
+          itemCount: forecastData['list'].length - 1,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (listViewContext, index) {
+            final prefix = forecastData['list'];
+            final rawtime = prefix[index + 1]['dt'];
+            final hourlyUpdate = DateFormat.jm().format(
+              DateTime.fromMillisecondsSinceEpoch(rawtime * 1000),
+            );
+            final String label = prefix[index + 1]['weather'][0]['main'];
+            final double hourlyTemp =
+                prefix[index + 1]['main']['temp'] - 273.15;
+            return Card(
+              elevation: 5,
+              shadowColor: Colors.grey,
+              child: Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Column(
+                  children: [
+                    Text(hourlyUpdate, style: TextStyle(fontSize: 18)),
+                    SizedBox(height: 10),
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: NimbusModel.fetchIcon(label),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      '${hourlyTemp.toStringAsFixed(2)} °C',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ],
                 ),
               ),
-            ),
-        ],
+            );
+          },
+        ),
       ),
     );
   }
