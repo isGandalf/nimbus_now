@@ -3,7 +3,9 @@ import 'package:nimbus_now/screens/additional_weather_details.dart';
 import 'package:nimbus_now/screens/hourly_forecast.dart';
 
 class WeatherInfo extends StatelessWidget {
-  const WeatherInfo({super.key});
+  final Map<String, dynamic> weatherDataFromAPI;
+
+  const WeatherInfo({super.key, required this.weatherDataFromAPI});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,9 @@ class WeatherInfo extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color:
-              theme.brightness == Brightness.dark ? Colors.white : Colors.black,
+              theme.brightness == Brightness.dark
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : Colors.black,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -24,7 +28,7 @@ class WeatherInfo extends StatelessWidget {
           children: [
             SizedBox(height: 10),
             Text(
-              'Hourly Forecast',
+              '3-Hourly Forecast',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -35,7 +39,7 @@ class WeatherInfo extends StatelessWidget {
               ),
             ),
             SizedBox(height: 5),
-            HourlyForecast(), // Hourly Forecast
+            HourlyForecast(forecastData: weatherDataFromAPI), // Hourly Forecast
             SizedBox(height: 5),
             Text(
               'Additional Weather Details',
@@ -48,8 +52,10 @@ class WeatherInfo extends StatelessWidget {
                         : Colors.black,
               ),
             ),
-            SizedBox(height: 20),
-            AdditionalWeatherDetails(), // Additional weather details
+            SizedBox(height: 10),
+            AdditionalWeatherDetails(
+              forecastData: weatherDataFromAPI,
+            ), // Additional weather details
           ],
         ),
       ),

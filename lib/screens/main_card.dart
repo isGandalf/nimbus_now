@@ -1,45 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:nimbus_now/models/nimbus_model.dart';
 
-class MainCard extends StatefulWidget {
-  const MainCard({super.key});
+class MainCard extends StatelessWidget {
+  final NimbusModel weatherInfo;
+  const MainCard({super.key, required this.weatherInfo});
 
   @override
-  State<MainCard> createState() => _MainCardState();
+  Widget build(BuildContext context) {
+    return MainCardDesign(
+      currentTemp: '${weatherInfo.currentTemp.toStringAsFixed(1)} °C',
+      icon: weatherInfo.icondata,
+      description: weatherInfo.description,
+    );
+  }
 }
 
-class _MainCardState extends State<MainCard> {
+class MainCardDesign extends StatelessWidget {
+  final String currentTemp;
+  final Widget icon;
+  final String description;
+
+  const MainCardDesign({
+    super.key,
+    required this.currentTemp,
+    required this.icon,
+    required this.description,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
       child: SizedBox(
         width: double.infinity,
         child: Card(
-          elevation: 10,
+          elevation: 20,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Column(
-            children: [
-              SizedBox(height: 10),
-              Text(
-                '30.2 C',
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                '\u2601',
-                style: TextStyle(
-                  fontSize: 100,
-                  height: 1,
-                  shadows: [Shadow(color: Colors.black.withValues(alpha: 0.5))],
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Text(
+                  currentTemp,
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
-              ),
-              Text(
-                'Clear',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-            ],
+                SizedBox(height: 10),
+                SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: NimbusModel.fetchIcon(description),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  description,
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
         ),
       ),
