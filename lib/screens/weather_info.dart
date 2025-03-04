@@ -23,40 +23,44 @@ class WeatherInfo extends StatelessWidget {
             topRight: Radius.circular(30),
           ),
         ),
-        child: Column(
-          // Holds two main section, 1 - Hourly Forecast, 2 - Additional weather details
-          children: [
-            SizedBox(height: 10),
-            Text(
-              '3-Hourly Forecast',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color:
-                    theme.brightness == Brightness.light
-                        ? Colors.white
-                        : Colors.black,
+        child: SingleChildScrollView(
+          child: Column(
+            // Holds two main section, 1 - Hourly Forecast, 2 - Additional weather details
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                '3-Hourly Forecast',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color:
+                      theme.brightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black,
+                ),
               ),
-            ),
-            SizedBox(height: 5),
-            HourlyForecast(forecastData: weatherDataFromAPI), // Hourly Forecast
-            SizedBox(height: 5),
-            Text(
-              'Additional Weather Details',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color:
-                    theme.brightness == Brightness.light
-                        ? Colors.white
-                        : Colors.black,
+              //SizedBox(height: 5),
+              HourlyForecast(
+                forecastData: weatherDataFromAPI,
+              ), // Hourly Forecast
+              const SizedBox(height: 5),
+              Text(
+                'Additional Weather Details',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color:
+                      theme.brightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black,
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            AdditionalWeatherDetails(
-              forecastData: weatherDataFromAPI,
-            ), // Additional weather details
-          ],
+              const SizedBox(height: 5),
+              AdditionalWeatherDetails(
+                forecastData: weatherDataFromAPI,
+              ), // Additional weather details
+            ],
+          ),
         ),
       ),
     );

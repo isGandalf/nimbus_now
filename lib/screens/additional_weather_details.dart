@@ -62,13 +62,13 @@ class AdditionalWeatherDetailsCardDesign extends StatelessWidget {
         elevation: 10,
         shadowColor: Color.fromARGB(255, 100, 100, 100),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
               SizedBox(width: 50, height: 50, child: icon),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(dataLabel, style: TextStyle(fontSize: 18)),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(unit, style: TextStyle(fontSize: 18)),
             ],
           ),
