@@ -8,7 +8,7 @@ class MainCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainCardDesign(
-      currentTemp: '${weatherInfo.currentTemp.toStringAsFixed(1)} °C',
+      currentTemp: '${weatherInfo.currentTemp!.toStringAsFixed(2)} °C',
       icon: weatherInfo.icondata,
       description: weatherInfo.description,
     );
@@ -16,9 +16,9 @@ class MainCard extends StatelessWidget {
 }
 
 class MainCardDesign extends StatelessWidget {
-  final String currentTemp;
-  final Widget icon;
-  final String description;
+  final String? currentTemp;
+  final Widget? icon;
+  final String? description;
 
   const MainCardDesign({
     super.key,
@@ -26,11 +26,10 @@ class MainCardDesign extends StatelessWidget {
     required this.icon,
     required this.description,
   });
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+      padding: EdgeInsets.only(left: 16, right: 16, top: 30, bottom: 10),
       child: SizedBox(
         width: double.infinity,
         child: Card(
@@ -43,19 +42,25 @@ class MainCardDesign extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  currentTemp,
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  currentTemp!,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: NimbusModel.fetchIcon(description),
+                  width: 100,
+                  height: 100,
+                  child: NimbusModel.fetchIcon(description!),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
-                  description,
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  description!,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),

@@ -11,7 +11,7 @@ class HourlyForecast extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: SizedBox(
-        height: 170,
+        height: 155,
         child: ListView.builder(
           padding: EdgeInsets.only(bottom: 10),
           itemCount: forecastData['list'].length - 1,
@@ -29,20 +29,20 @@ class HourlyForecast extends StatelessWidget {
               elevation: 5,
               shadowColor: Colors.grey,
               child: Padding(
-                padding: const EdgeInsets.all(14.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
-                    Text(hourlyUpdate, style: TextStyle(fontSize: 18)),
-                    SizedBox(height: 10),
+                    Text(hourlyUpdate, style: const TextStyle(fontSize: 18)),
+                    SizedBox(height: 5),
                     SizedBox(
                       width: 50,
                       height: 50,
                       child: NimbusModel.fetchIcon(label),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 5),
                     Text(
                       '${hourlyTemp.toStringAsFixed(2)} °C',
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18),
                     ),
                   ],
                 ),
