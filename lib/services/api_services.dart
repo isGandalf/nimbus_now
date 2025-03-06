@@ -59,8 +59,6 @@ class APIServices {
 
     try {
       if (response.statusCode == 200) {
-        print('response sent');
-
         return jsonDecode(response.body);
       } else {
         throw 'Error fetching weather details of $cityName: ${response.statusCode}';
