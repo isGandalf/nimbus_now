@@ -43,7 +43,8 @@ Nimbus Now is built using the following technologies and packages:
 - **typeahead** – Provides city search suggestions  
 - **dotenv** – Manages API keys securely  
 
-
+## 📈 Flowchart
+![Flowchart](https://github.com/isGandalf/nimbus_now/blob/main/NimbusNow_flowchart.png)
 
 
 ## 🛠 Installation  
