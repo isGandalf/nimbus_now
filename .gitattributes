@@ -1,3 +1,14 @@
-*.dart linguist-detectable=true  
-*.cpp linguist-vendored  
-*.h linguist-vendored  
+# Prioritize Dart
+*.dart linguist-detectable=true
+
+# Ignore platform-specific files
+android/** linguist-vendored
+ios/** linguist-vendored
+linux/** linguist-vendored
+windows/** linguist-vendored
+macos/** linguist-vendored
+web/** linguist-vendored
+
+# Ignore build files
+**/build/** linguist-vendored
+**/CMakeLists.txt linguist-vendored
