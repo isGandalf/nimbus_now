@@ -103,7 +103,7 @@ Additionally, if you want to connect to your phone wirelessly then follow these 
 - After pairing, run:
    ```sh
      adb connect <IP>:<Port>
-     adb connect 192.168.1.100:5555
+     // (example) adb connect 192.168.1.100:5555
      ```
 - Verify connection:
   ```sh
