@@ -172,4 +172,4 @@ Here are some planned features for upcoming updates:
 
 ## 🤝 Contributing  
 
-Contributions are welcome! If you'd like to improve Nimbus Now, please go ahead. Since, I am just a biginner in this space, feel free to send me your suggestions and code Improvements.
+Contributions are welcome! If you'd like to improve Nimbus Now, please go ahead. Since, I am just a beginner in this space, feel free to send me your suggestions and code Improvements.
