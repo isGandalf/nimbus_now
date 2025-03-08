@@ -10,18 +10,18 @@ Nimbus Now is a simple weather forecast app that provides real-time weather upda
 
 
 ## Demo and Screesnshots
-<table align="center">
+<table align="center" style="border-collapse: collapse;">
   <tr>
     <td align="center">
-      <img src="https://github.com/isGandalf/nimbus_now/blob/main/Screenshot_20250308-141728.jpg" width="200"><br>
+      <img src="https://github.com/isGandalf/nimbus_now/blob/main/Screenshot_20250308-141728.jpg" width="250"><br>
       <p align="center"><small>Main screen</small></p>
     </td>
     <td align="center">
-      <img src="https://github.com/isGandalf/nimbus_now/blob/main/citySearch.gif" width="200"><br>
+      <img src="https://github.com/isGandalf/nimbus_now/blob/main/citySearch.gif" width="250"><br>
       <p align="center"><small>City search from API</small></p>
     </td>
     <td align="center">
-      <img src="https://github.com/isGandalf/nimbus_now/blob/main/Hourlyforecast.gif" width="200"><br>
+      <img src="https://github.com/isGandalf/nimbus_now/blob/main/Hourlyforecast.gif" width="250"><br>
       <p align="center"><small>Hourly Forecast Animation<br>with lazy loading</small></p>
     </td>
   </tr>
