@@ -9,9 +9,31 @@ Nimbus Now is a simple weather forecast app that provides real-time weather upda
 - 📅 3-Hour Interval Forecast for the next 5 days
 
 
-## Demo
+## Demo and Screesnshots
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/isGandalf/nimbus_now/blob/main/Screenshot_20250308-141728.jpg" width="200"><br>
+      <p align="center"><small>Main screen</small></p>
+    </td>
+    <td align="center">
+      <img src="https://github.com/isGandalf/nimbus_now/blob/main/citySearch.gif" width="200"><br>
+      <p align="center"><small>City search from API</small></p>
+    </td>
+    <td align="center">
+      <img src="https://github.com/isGandalf/nimbus_now/blob/main/Hourlyforecast.gif" width="200"><br>
+      <p align="center"><small>Hourly Forecast Animation<br>with lazy loading</small></p>
+    </td>
+  </tr>
+</table>
 
-Gifs go here!
+
+
+
+
+
+
+
 ## ✨ Features
 
 - **Real-time weather updates** – Displays temperature, sky condition, humidity, wind speed, and pressure using the **OpenWeather Free Forecast 2.5 Plan**.  
