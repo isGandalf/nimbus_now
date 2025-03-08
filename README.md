@@ -70,7 +70,7 @@ Nimbus Now is built using the following technologies and packages:
 
 ## 🛠 Installation  
 
-Fairly easy. I've made this biginner friendly so if you use this as your school/college project, you can do so. 
+Fairly easy. I've made this beginner friendly so if you use this as your school/college project, you can do so. 
 
 Follow these steps to set up and run Nimbus Now locally:  
 
