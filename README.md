@@ -77,7 +77,7 @@ Follow these steps to set up and run Nimbus Now locally:
 #### ⚙️ Prerequisites:
 Before proceeding, ensure your system meets the following requirements:
 - Make sure you have flutter installed in your system or else, download from the [official website](https://docs.flutter.dev/get-started/install). Follow the steps mentioned to install.
-- Install Visual Studio Code and Android Studio. *(This step should be completed when you install flutter)* Android Studio would be needed for running an emulator. Avoid the emulator provided with vscode.
+- Install Visual Studio Code and Android Studio (optional). *(This step should be completed when you install flutter)* Android Studio would be needed for running an emulator in case if you don't have spare android phone.
 - Download and install Git from [git-scm.com](https://git-scm.com/). Verify installation using 
     ```sh
      git --version
